@@ -33,3 +33,42 @@ export function getCatalog(courseId){
 export function getLabel(){
     return request.get('/courses/label')
 }
+
+// 获取我创建的课程
+export function getCreatedCourses(){
+    return request.get('/courses/createdcourses')
+}
+// 获取学习进度
+export function getStudyProcess(courseId){
+    return request.get(`/courses/${courseId}/studyprocess`)
+}
+// 获取小节选择题
+export function getChoiceQuestions(subSectionId){
+    return request.get(`/courses/${subSectionId}/choicequestions`)
+}
+// 获取小节判断题
+export function getJudgeQuestions(subsectionId){
+    return request.get(`/courses/${subsectionId}/judgequestions`)
+}
+
+// 获取选择题答案
+export function getChoiceAnswer(questionId){
+    return request.get(`/courses/${questionId}/choiceanswer`)
+}
+// 获取判断题答案
+export function getJudgeAnswer(questionId){
+    return request.get(`/courses/${questionId}/judgeanswer`)
+}
+// 获取所有学习进度
+export function getAllStudyProcess(studentId, courseId){
+    return request.post('/courses/allstudyprocess',{studentId,courseId})
+}
+// 获取所有测试题
+export function getAllTest(studentId, courseId){
+    return request.post('/courses/alltest',{studentId,courseId})
+}
+
+// 发送学习预警
+export function sendWarning(mes){
+    return request.post('/courses/coursewarning',mes)
+}
